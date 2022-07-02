@@ -15,9 +15,9 @@ namespace leetcode::longest_palindrome_substring::dp
         {
             dp[i][i] = 1;
         }
-        int maxLen = 0;
+        int maxLen = 1;
         int start = 0;
-        for (int L = 2; L < i_slen; L++)
+        for (int L = 2; L <= i_slen; L++)
         {
             for (int i = 0; i < i_slen; i++)
             {
@@ -26,16 +26,24 @@ namespace leetcode::longest_palindrome_substring::dp
                 {
                     break;
                 }
-                if (s[i] == s[i])
+                if (s[i] == s[j])
                 {
-                    dp[i][j] = dp[i + 1][j - 1];
+                    if (j - i >= 2)
+                    {
+
+                        dp[i][j] = dp[i + 1][j - 1];
+                    }
+                    else
+                    {
+                        dp[i][j] = 1;
+                    }
                 }
                 else
                 {
                     dp[i][j] = 0;
                 }
 
-                if (dp[i][j] == 1 && j - 1 + 1 > maxLen)
+                if (dp[i][j] == 1 && j - i + 1 > maxLen)
                 {
                     maxLen = j - i + 1;
                     start = i;

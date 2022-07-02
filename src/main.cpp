@@ -1,11 +1,13 @@
 #include <iostream>
 #include <vector>
 #include <string>
-#include "0003_longest_substring.h"
+#include "0011_container_with_most_water.h"
 
 int main()
 {
-    leetcode::longest_substring::Solution s;
-    int res = s.lengthOfLongestSubstring(static_cast<std::string>("aab"));
+    leetcode::most_water_container::Solution s;
+    std::vector<int> input = {1,8,6,2,5,4,8,3,7};
+    int res = s.maxArea(input);
+    std::cout<<res<<std::endl;
     return 0;
 }

@@ -6,7 +6,7 @@
 int main()
 {
     leetcode::three_sum::Solution s;
-    std::vector<int> input = {0};
+    std::vector<int> input = {-2,0,0,2,2};
     std::vector<std::vector<int>> res = s.threeSum(input);
     //std::cout<<res<<std::endl;
     return 0;

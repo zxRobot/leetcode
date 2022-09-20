@@ -1,58 +1,59 @@
 #include <algorithm>
 #include <set>
+#include <algorithm>
 #include "0015_three_sum.h"
 
 namespace leetcode::three_sum
 {
-    std::vector<std::vector<int>> twoSum(std::vector<int> &nums, int begin, int target)
-    {
-        std::set<int> set;
-        for (int i = begin; i < nums.size(); i++)
-        {
-            set.insert(nums[i]);
-        }
-        std::vector<std::vector<int>> res;
-        for (int i = begin; i < nums.size(); i++)
-        {
-            if (set.find(target - nums[i]) != set.end())
-            {
-                std::vector<int> temp;
-                temp.push_back(nums[i]);
-                temp.push_back(target - nums[i]);
-                res.push_back(temp);
-            }
-        }
-    }
-
     std::vector<std::vector<int>> Solution::threeSum(std::vector<int> &nums)
     {
+        int len = nums.size();
         std::vector<std::vector<int>> res;
-        if (nums.size() < 3)
+        if (len < 3)
         {
             return res;
         }
         sort(nums.begin(), nums.end());
-        for (int i = 0; i < nums.size() - 2; i++)
+        for (int i = 0; i < len; i++)
         {
             if (nums[i] > 0)
             {
-                break;
+                return res;
             }
             if (i != 0 && nums[i] == nums[i - 1])
             {
                 continue;
             }
-            int target = -nums[i];
-            std::vector<std::vector<int>> s = twoSum(nums, i + 1, target);
-            if (!s.empty())
+            int left = i + 1;
+            int right = len - 1;
+            while (left < right)
             {
-                for (int k = 0; k < s.size(); k++)
+                if (nums[i] + nums[left] + nums[right] == 0)
                 {
-                    s[k].push_back(nums[i]);
-                    res.push_back(s[k]);
+                    res.push_back(std::vector<int>{nums[i], nums[left], nums[right]});
+                    while (left < right && nums[left] == nums[left + 1])
+                    {
+                        left++;
+                    }
+                    while (left < right && nums[right] == nums[right - 1])
+                    {
+                        right--;
+                    }
+                    left += 1;
+                    right -= 1;
+                }
+                else if (nums[i] + nums[left] + nums[right] < 0)
+                {
+                    left++;
+                }
+                else
+                {
+                    right--;
                 }
             }
         }
+
         return res;
     }
+
 }

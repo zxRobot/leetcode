@@ -1,0 +1,12 @@
+[
+{
+  "directory": "/Users/xuzhang/work/LEETCODE/build/src",
+  "command": "/usr/bin/clang++  -I/Users/xuzhang/work/LEETCODE/include  -O0 -Wall -g2 -ggdb -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -std=gnu++17 -o CMakeFiles/out.dir/main.cpp.o -c /Users/xuzhang/work/LEETCODE/src/main.cpp",
+  "file": "/Users/xuzhang/work/LEETCODE/src/main.cpp"
+},
+{
+  "directory": "/Users/xuzhang/work/LEETCODE/build/src",
+  "command": "/usr/bin/clang++  -I/Users/xuzhang/work/LEETCODE/include  -O0 -Wall -g2 -ggdb -arch arm64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX11.1.sdk -std=gnu++17 -o CMakeFiles/out.dir/0015_three_sum.cpp.o -c /Users/xuzhang/work/LEETCODE/src/0015_three_sum.cpp",
+  "file": "/Users/xuzhang/work/LEETCODE/src/0015_three_sum.cpp"
+}
+]
